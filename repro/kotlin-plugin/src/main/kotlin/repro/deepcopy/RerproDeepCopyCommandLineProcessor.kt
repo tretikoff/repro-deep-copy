@@ -19,6 +19,7 @@ class RerproDeepCopyCommandLineProcessor : CommandLineProcessor {
         )
 
     override fun processOption(option: AbstractCliOption, value: String, configuration: CompilerConfiguration) {
+        println("<<<")
         when (option.optionName) {
             "enabled" -> configuration.put(KEY_ENABLED, value.toBoolean())
         }
