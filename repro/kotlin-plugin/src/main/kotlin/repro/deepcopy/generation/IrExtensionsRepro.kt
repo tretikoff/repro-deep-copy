@@ -11,18 +11,6 @@ import org.jetbrains.kotlin.ir.visitors.transformChildrenVoid
 
 class IrExtensionsRepro : IrGenerationExtension {
     override fun generate(moduleFragment: IrModuleFragment, pluginContext: IrPluginContext) {
-        throw IllegalStateException("Should be here when compiling")
-        moduleFragment.transformChildrenVoid(object : IrElementTransformerVoid() {
-            override fun visitSimpleFunction(declaration: IrSimpleFunction): IrStatement {
-//                if (!declaration.name.asString().equals("MyRadioGroup")) {
-//                    return declaration
-//                }
-                return declaration.deepCopyWithSymbols(
-                    initialParent = declaration.parent
-                ).also { copiedFun ->
-//                    println(JsManglerDesc.getMangleComputer(MangleMode.FULL).computeMangle(copiedFun.descriptor))
-                }
-            }
-        })
+        throw IllegalStateException("Should throw here when compiling")
     }
 }
